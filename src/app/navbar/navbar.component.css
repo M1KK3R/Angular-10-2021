@@ -1,0 +1,23 @@
+.navbar {
+  height: 150px;
+  background-color: skyblue; 
+  display: flex;
+  justify-content: space-between;
+}
+
+img {
+    
+}
+
+.logo {
+    margin: 10px;      
+}
+
+.cart-button {
+    height: 50px;
+    margin: 50px;    
+}
+
+.menu-button {
+    cursor: pointer;
+}

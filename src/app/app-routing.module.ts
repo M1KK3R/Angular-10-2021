@@ -4,7 +4,13 @@ import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {path: "Home", component: HomeComponent},
+  
+  // URLi, sellele vastavuses mingi Clehe
+  // path = URL, component = leht
+  // {path : "localhost:4200", component: home.component.html}
+
+
+  {path: "", component: HomeComponent},
   {path: "ShoppingCart", component: CartComponent}
 ];
 

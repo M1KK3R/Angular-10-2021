@@ -1,1 +1,22 @@
-<p>cart works!</p>
+<div>{{pealkiri1}}</div>
+<div>{{pealkiri2}}</div>
+<div>{{pealkiri3}}</div>
+
+<!-- Kous tehke ülejäänud muutujad -->
+
+<div *ngFor="let pealkiri of pealkirjad">{{ pealkiri }}</div>
+
+<!-- kodus tehke ülejäänud 2 massiivi: hinnad ja aktiivsused -->
+
+<div>{{ ese1 }}</div>
+<!-- [object Object] -->
+<div>{{ ese1.pealkiri }}</div>
+<div>{{ ese1.hind }}</div>
+<div>{{ ese1.aktiivne }}</div>
+
+<!-- Koduse tehke ülejäänud 2 objekti: ese2 ja ese3 -->
+
+<!-- VIIMANE OBJEKTIDE MASSIIV KUVAGE VÄLJA
+KOMBO: ngFor ja Objakti küljest väärtuse võtmine
+Ese1
+ -->
