@@ -1,56 +1,20 @@
-<div>{{ pealkiri1 }}</div>
-<div>{{ pealkiri2 }}</div>
-<div>{{ pealkiri3 }}</div>
+<button *ngIf="cartItems.length > 0" (click)="emptyCart()">Tühjenda ostukorv</button>
 
-<div>{{ hind1 }}</div>
-<div>{{ hind2 }}</div>
-<div>{{ hind3 }}</div>
-
-<div>{{ aktiivne1 }}</div>
-<div>{{ aktiivne2 }}</div>
-<div>{{ aktiivne3 }}</div>
-
-<!-- Kodus tehke ülejäänud muutujad -->
-
-<div *ngFor="let pealkiri of pealkirjad">{{ pealkiri }}</div>
-<div *ngFor="let hind of hinnad">{{ hind }}</div>
-<div *ngFor="let aktiivne of aktiivsused">{{ aktiivne }}</div>
-
-<!-- Kodus tehke ülejäänud 2 massiivi: hinnad ja aktiivsused -->
-
-<div>{{ ese1 }}</div>
-<!-- [object Object] -->
-<div>{{ ese1.pealkiri }}</div>
-<div>{{ ese1.hind }}</div>
-<div>{{ ese1.aktiivne }}</div>
-
-<div>{{ ese2 }}</div>
-
-<div>{{ ese2.pealkiri }}</div>
-<div>{{ ese2.hind }}</div>
-<div>{{ ese2.aktiivne }}</div>
-
-<div>{{ ese3 }}</div>
-
-<div>{{ ese3.pealkiri }}</div>
-<div>{{ ese3.hind }}</div>
-<div>{{ ese3.aktiivne }}</div>
-<!-- Koduse tehke ülejäänud 2 objekti: ese2 ja ese3 -->
-
-<!-- VIIMANE OBJEKTIDE MASSIIV KUVAGE VÄLJA
-KOMBO: ngFor ja Objekti küljest väärtuse võtmine
-Ese1
- -->
-
- <!-- 1 -->
-
- <div *ngFor="let ese of esemed">
-    <div>{{ ese.pealkiri }}</div>
-    <div>{{ ese.hind }}</div>
-    <div>{{ ese.aktiivne }}</div>    
+<div *ngIf="cartItems.length == 0">
+    <div>Osutkorv on tühi</div>
+    <img src="assets/box.png" alt="ostukorv on tühi">
 </div>
 
-<!-- 2 -->
+<div *ngFor="let cartItem of cartItems" class="item">
+    <div>{{ cartItem.pealkiri }}</div>
+    <div>{{ cartItem.hind }}</div>
+    <img src="assets/apple.jpg" alt="Õun">
+    <button (click)="deleteItemFromCart(cartItem)">X</button>
+</div>
+
+<div *ngIf="cartItems.length > 0">Ostukorvi summa on {{ sumOfCart }} €</div>
+
+
 
 
 
