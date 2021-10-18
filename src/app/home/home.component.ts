@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
+import { ItemService } from '../services/item.service';
 
 @Component({
   selector: 'app-home',
@@ -8,16 +9,15 @@ import { CartService } from '../services/cart.service';
 })
 export class HomeComponent implements OnInit {
 
-  esemed = [
-    {pealkiri: 'ese1', hind: 100}, // index - 0
-    {pealkiri: 'ese2', hind: 200}, // index - 1
-    {pealkiri: 'ese3', hind: 300}, // index - 2    
-  ];
+  esemed: any[] =[];
+
   lisatud = false;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService,
+    private itemService: ItemService) { }
 
   ngOnInit(): void {
+    this.esemed = this.itemService.itemsInService
   }
 
   ostukorviLisamine(eseMillePealeKlikiti: any){
