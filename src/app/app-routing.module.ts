@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: "ostukorv", component: CartComponent},
   {path: "admin", component: AdminHomeComponent},
   {path: "admin/lisa-ese", component: AddItemComponent},
-  {path: "admin/muuda-ese", component: EditItemComponent},
+  {path: "admin/muuda-ese/:itemId", component: EditItemComponent},
   {path: "admin/esemed", component: ViewItemsComponent}
 ];
 

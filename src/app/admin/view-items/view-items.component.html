@@ -1,7 +1,8 @@
 <div *ngFor="let item of items" class="item">
-<div>{{ item.pealkiri }}</div>
-<div>{{ item.hind }}</div>
-<!-- <img src="assets/apple.jpg" alt="Õun"> -->
+<div>{{ item.title }}</div>
+<div>{{ item.price }}</div>
+<div>{{ item.imgSrc }}</div>
+<div>{{ item.category }}</div>
 <button (click)="onDeleteItem(item)">X</button>
-<button routerLink="/admin/muuda-ese">Muuda ese</button>
+<button routerLink="/admin/muuda-ese/{{item.title}}">Muuda ese</button>
 </div>

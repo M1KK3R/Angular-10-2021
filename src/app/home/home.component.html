@@ -2,10 +2,11 @@
 
 
 <div *ngFor="let ese of esemed" class="item">
-    <div>{{ ese.pealkiri }}</div>
-    <div>{{ ese.hind }}</div>
-    <img src="assets/apple.jpg" alt="Õun">
+    <div>{{ ese.title }}</div>
+    <div>{{ ese.price }}</div>
+    <img src="{{ ese.imgSrc }}" alt="tooted"><br>   
     <button (click)="ostukorviLisamine(ese)">Lisa ostukorvi</button>
+    <br><br>
 </div>
 
 

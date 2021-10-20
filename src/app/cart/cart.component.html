@@ -6,9 +6,9 @@
 </div>
 
 <div *ngFor="let cartItem of cartItems" class="item">
-    <div>{{ cartItem.pealkiri }}</div>
-    <div>{{ cartItem.hind }}</div>
-    <img src="assets/apple.jpg" alt="Õun">
+    <div>{{ cartItem.title }}</div>
+    <div>{{ cartItem.price }}</div>
+    <img src="{{ cartItem.imgSrc }}" alt="tooted"><br>
     <button (click)="deleteItemFromCart(cartItem)">X</button>
 </div>
 
