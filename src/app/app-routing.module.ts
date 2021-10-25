@@ -6,6 +6,7 @@ import { EditItemComponent } from './admin/edit-item/edit-item.component';
 import { ViewItemsComponent } from './admin/view-items/view-items.component';
 import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
+import { ViewComponent } from './home/view/view.component';
 
 const routes: Routes = [
   
@@ -19,7 +20,9 @@ const routes: Routes = [
   {path: "admin", component: AdminHomeComponent},
   {path: "admin/lisa-ese", component: AddItemComponent},
   {path: "admin/muuda-ese/:itemId", component: EditItemComponent},
-  {path: "admin/esemed", component: ViewItemsComponent}
+  {path: "admin/esemed", component: ViewItemsComponent},
+  {path: "ese/:itemId", component: ViewComponent},
+
 ];
 
 @NgModule({

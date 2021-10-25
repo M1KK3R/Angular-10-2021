@@ -4,7 +4,7 @@
 <div *ngFor="let ese of esemed" class="item">
     <div>{{ ese.title }}</div>
     <div>{{ ese.price }}</div>
-    <img src="{{ ese.imgSrc }}" alt="tooted"><br>   
+    <img routerLink="ese/{{ ese.title }}" src="{{ ese.imgSrc }}" alt="tooted"><br>   
     <button (click)="ostukorviLisamine(ese)">Lisa ostukorvi</button>
     <br><br>
 </div>

@@ -16,7 +16,7 @@ export class AddItemComponent implements OnInit {
   }
 
   onSubmit(form: any) {
-    // console.log(form.value);
+    console.log(form.value);
     this.itemService.itemsInService.push(form.value);
   }
 
