@@ -2,16 +2,16 @@
 
 <form (ngSubmit)="onSubmit(addItemForm)" #addItemForm="ngForm">
     <label>Eseme nimetus</label><br>
-    <input ngModel name="title" type="text"><br>
+    <input ngModel name="title" type="text" required><br>
     <label>Eseme hind</label><br>
-    <input ngModel name="price" type="number"><br>
+    <input ngModel name="price" type="number" required><br>
     <label>Eseme pilt</label><br>
-    <input ngModel name="imgSrc" type="text"><br>
+    <input ngModel name="imgSrc" type="text" required><br>
     <label>Eseme kategooria</label><br>
-    <input ngModel name="category" type="text"><br>
+    <input ngModel name="category" type="text" required><br>
     <label>Eseme aktiivne</label><br>
-    <input ngModel name="isActive" type="text"><br>
-    <button>Lisa ese</button>
+    <input ngModel name="isActive" type="checkbox"><br>
+    <button [disabled]="addItemForm.invalid">Lisa ese</button>
 </form>
 
 

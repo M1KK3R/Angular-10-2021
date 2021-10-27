@@ -1,1 +1,18 @@
-<p>edit-item works!</p>
+
+<form (ngSubmit)="onSubmit(editItemForm)" #editItemForm="ngForm">
+    <label>Eseme nimetus</label><br>
+    <input ngModel name="title" type="text" placeholder="{{ item.title }}"><br>
+    <label>Eseme hind</label><br>
+    <input ngModel name="price" type="number" placeholder="{{ item.price }}"><br>
+    <label>Eseme pilt</label><br>
+    <img src="{{ item.imgSrc }}" alt="toote pilt"><br>
+    <input ngModel name="imgSrc" type="text" placeholder="{{ item.imgSrc }}"><br>
+    <label>Eseme kategooria</label><br>
+    <input ngModel name="category" type="text" placeholder=" {{ item.category }}"><br>
+    <label>Eseme aktiivne</label><br>
+    <input ngModel name="isActive" type="checkbox"><br>
+    <button [disabled]="editItemForm.invalid">Muuda ese</button>
+    <button [disabled]="editItemForm.invalid">Kustuta ese</button>
+</form>
+
+
