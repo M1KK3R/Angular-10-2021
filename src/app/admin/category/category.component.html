@@ -1,0 +1,15 @@
+<!-- <form (ngSubmit)="onSubmit()" #form="ngForm">
+</form> -->
+<!-- addItemComponent abiks -->
+<form (ngSubmit)="onSubmit(addCategoryForm)" #addCategoryForm="ngForm">
+    <label>Uue Kategooria nimetus</label><br>
+    <input ngModel name="category" type="text" required><br>    
+    <button [disabled]="addCategoryForm.invalid">Lisa ese</button>
+</form>
+
+<br><br>
+
+<div *ngFor="let category of categories">
+    <div>{{ category }}</div>
+    <button (click)="onRemoveCategory(category)">Kustuta</button>
+</div>

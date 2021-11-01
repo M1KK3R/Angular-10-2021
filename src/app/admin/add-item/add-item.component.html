@@ -8,7 +8,10 @@
     <label>Eseme pilt</label><br>
     <input ngModel name="imgSrc" type="text" required><br>
     <label>Eseme kategooria</label><br>
-    <input ngModel name="category" type="text" required><br>
+    <!-- <input ngModel name="category" type="text" required><br> -->
+    <select ngModel name="category">
+        <option *ngFor="let category of categories" value="{{ category }}">{{ category }}</option>        
+      </select><br>
     <label>Eseme aktiivne</label><br>
     <input ngModel name="isActive" type="checkbox"><br>
     <button [disabled]="addItemForm.invalid">Lisa ese</button>

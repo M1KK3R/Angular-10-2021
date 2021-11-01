@@ -1,18 +1,21 @@
 
-<form (ngSubmit)="onSubmit(editItemForm)" #editItemForm="ngForm">
+<form (ngSubmit)="onSubmit()" [formGroup]="editItemForm">
     <label>Eseme nimetus</label><br>
-    <input ngModel name="title" type="text" placeholder="{{ item.title }}"><br>
+    <input formControlName="title" type="text" required><br>
     <label>Eseme hind</label><br>
-    <input ngModel name="price" type="number" placeholder="{{ item.price }}"><br>
+    <input formControlName="price" type="number" required><br>
     <label>Eseme pilt</label><br>
     <img src="{{ item.imgSrc }}" alt="toote pilt"><br>
-    <input ngModel name="imgSrc" type="text" placeholder="{{ item.imgSrc }}"><br>
+    <input formControlName="imgSrc" type="text" required><br>
     <label>Eseme kategooria</label><br>
-    <input ngModel name="category" type="text" placeholder=" {{ item.category }}"><br>
+    <select formControlName="category">
+        <option *ngFor="let category of categories" value="{{ category }}">{{ category }}</option>        
+      </select><br>
     <label>Eseme aktiivne</label><br>
-    <input ngModel name="isActive" type="checkbox"><br>
+    <input fromControlName="isActive" type="checkbox"><br>
     <button [disabled]="editItemForm.invalid">Muuda ese</button>
-    <button [disabled]="editItemForm.invalid">Kustuta ese</button>
+    
 </form>
+<button>X</button>
 
 
