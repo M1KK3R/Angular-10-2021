@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CategoryService {
-  categoriesInService: any[] = ["philips", "sony", "dell", "LG"];
+  categoriesInService: string[] = ["philips", "sony", "dell", "LG"];
 
   constructor() { }
 }

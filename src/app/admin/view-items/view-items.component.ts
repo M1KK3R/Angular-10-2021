@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Item } from 'src/app/models/item.model';
 import { ItemService } from 'src/app/services/item.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { ItemService } from 'src/app/services/item.service';
   styleUrls: ['./view-items.component.css']
 })
 export class ViewItemsComponent implements OnInit {
-  items: any[] = [];
+  items: Item[] = [];
   
 
   constructor(private itemService: ItemService) { }
@@ -15,7 +16,7 @@ export class ViewItemsComponent implements OnInit {
   ngOnInit(): void {
     this.items = this.itemService.itemsInService
   }
-  onDeleteItem(item: any) {    
+  onDeleteItem(item: Item) {    
     let index = this.itemService.itemsInService.indexOf(item);
     this.itemService.itemsInService.splice(index,1);    
     

@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'webshop';
 
   constructor(private translate: TranslateService) {
-    translate.setDefaultLang('en');
+    translate.setDefaultLang('ee');
 }
 
 }

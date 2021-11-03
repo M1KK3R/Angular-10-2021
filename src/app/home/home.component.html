@@ -1,11 +1,8 @@
-<div *ngIf="lisatud">{{"Lisati ostukorvi" | translate}}</div>
-
-
-<div *ngFor="let ese of esemed" class="item">
-    <div>{{ ese.title }}</div>
-    <div>{{ ese.price }}</div>
-    <img routerLink="ese/{{ ese.title }}" src="{{ ese.imgSrc }}" alt="tooted"><br>   
-    <button (click)="ostukorviLisamine(ese)">{{ "Lisa ostukorvi" | translate }}</button>
+<div *ngFor="let item of items" class="item">
+    <div>{{ item.title }}</div>
+    <div>{{ item.price }}</div>
+    <img routerLink="ese/{{ item.title }}" src="{{ item.imgSrc }}" alt="tooted"><br>   
+    <button (click)="onAddToCart(item)">{{ "Lisa ostukorvi" | translate }}</button>
     <br><br>
 </div>
 

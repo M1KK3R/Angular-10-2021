@@ -5,5 +5,7 @@
     <img class="logo menu-button" routerLink="/" src="assets/OnlineStore.png" alt="logo">
                                 <!-- Angulari lisaatribuut - routerLink -->
         <button routerLink="admin">{{ "Mine admin lehele" | translate }}</button>
+        <button (click)="useLanguage('en')">en</button>
+        <button (click)="useLanguage('ee')">ee</button>
     <img class="cart-button menu-button" routerLink="ostukorv" src="assets/shopping-cart.png" alt="ShopingCart">
 </div>

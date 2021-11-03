@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Item } from '../models/item.model';
 import { CartService } from '../services/cart.service';
 import { ItemService } from '../services/item.service';
 
@@ -9,25 +10,18 @@ import { ItemService } from '../services/item.service';
 })
 export class HomeComponent implements OnInit {
 
-  esemed: any[] =[];
+  items: Item[] =[];
 
-  lisatud = false;
 
   constructor(private cartService: CartService,
     private itemService: ItemService) { }
 
   ngOnInit(): void {
-    this.esemed = this.itemService.itemsInService
+    this.items = this.itemService.itemsInService
   }
 
-  ostukorviLisamine(eseMillePealeKlikiti: any){
-    // console.log("töötab");
-    // console.log(this.esemed);
-    // this.esemed[0].hind = "150 €";
-    // this.lisatud = true;
-    // this.esemed.push(eseMillePealeKlikiti);
-    
-    this.cartService.cartItemsInService.push(eseMillePealeKlikiti);
+  onAddToCart(item: Item){  
+    this.cartService.cartItemsInService.push(item);
   }
 
 }

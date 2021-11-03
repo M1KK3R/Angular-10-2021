@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Item } from 'src/app/models/item.model';
 import { ItemService } from 'src/app/services/item.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ItemService } from 'src/app/services/item.service';
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
-  item: any;
+  item!: Item;
 
   constructor(private route: ActivatedRoute, 
     private itemService: ItemService) { }
@@ -16,8 +17,11 @@ export class ViewComponent implements OnInit {
   ngOnInit(): void {
     let id = this.route.snapshot.paramMap.get("itemId");
     console.log(id);
-    this.item = this.itemService.itemsInService.find(item => item.title == id);
-    console.log(this.item)
+    let itemFound = this.itemService.itemsInService.find(item => item.title == id);
+    if (itemFound) {
+    this.item = itemFound;
+    }
+    
   }
 
 }
