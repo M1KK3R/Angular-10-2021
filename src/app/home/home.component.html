@@ -1,3 +1,10 @@
+<button (click)="onSortByTitleAsc()">Järjesta A-Z</button>
+<button (click)="onSortByTitleDesc()">Järjesta Z-A</button>
+<button (click)="onSortByPriceAsc()">Järjesta odavamast</button>
+<button (click)="onSortByPriceDesc()">Järjesta kallimast</button>
+
+<br><br><br>
+
 <div *ngFor="let item of items" class="item">
     <div>{{ item.title }}</div>
     <div>{{ item.price }}</div>

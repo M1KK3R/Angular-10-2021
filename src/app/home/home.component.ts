@@ -24,4 +24,21 @@ export class HomeComponent implements OnInit {
     this.cartService.cartItemsInService.push(item);
   }
 
+  onSortByTitleAsc() {
+    this.items.sort((currentItem, nextItem)=> currentItem.title.localeCompare(nextItem.title) );
+  }
+
+  onSortByTitleDesc() {
+    this.items.sort((currentItem, nextItem)=> nextItem.title.localeCompare(currentItem.title) );    
+  }
+
+  onSortByPriceAsc() {
+    this.items.sort((currentItem, nextItem)=> currentItem.price - nextItem.price);
+  }
+
+  onSortByPriceDesc() {
+    this.items.sort((currentItem, nextItem)=> nextItem.price - currentItem.price);
+    
+  }
+
 }

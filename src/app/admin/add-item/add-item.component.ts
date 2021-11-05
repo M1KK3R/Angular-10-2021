@@ -1,5 +1,6 @@
 import { invalid } from '@angular/compiler/src/render3/view/util';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { CategoryService } from 'src/app/services/category.service';
 import { ItemService } from 'src/app/services/item.service';
 
@@ -11,7 +12,7 @@ import { ItemService } from 'src/app/services/item.service';
 })
 
 export class AddItemComponent implements OnInit {
-  categories: any[] =[];
+  categories: string[] =[];
 
   constructor(private itemService: ItemService,
     private categoryService: CategoryService) { }
@@ -20,7 +21,7 @@ export class AddItemComponent implements OnInit {
     this.categories = this.categoryService.categoriesInService
   }
 
-  onSubmit(form: any) {
+  onSubmit(form: NgForm) {
     if (form.valid) {
     console.log(form.value);
     console.log(form);
