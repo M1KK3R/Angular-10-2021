@@ -15,12 +15,14 @@ export class ViewComponent implements OnInit {
     private itemService: ItemService) { }
 
   ngOnInit(): void {
-    let id = this.route.snapshot.paramMap.get("itemId");
+    let id = Number(this.route.snapshot.paramMap.get("itemId"));
     console.log(id);
-    let itemFound = this.itemService.itemsInService.find(item => item.title == id);
+    let itemFound = this.itemService.itemsInService.find(item => item.id == id);
     if (itemFound) {
     this.item = itemFound;
     }
+
+    
     
   }
 

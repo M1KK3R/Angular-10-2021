@@ -1,10 +1,10 @@
 {
   "database": {
-    "rules": "(database.rules.json)"
+    "rules": "database.rules.json"
   },
   "hosting": {
     "site": "webshop-10",
-    "public": "dist",
+    "public": "dist/webshop",
     "ignore": [
       "firebase.json",
       "**/.*",

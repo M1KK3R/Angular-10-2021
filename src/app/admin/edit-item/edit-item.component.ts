@@ -22,14 +22,15 @@ export class EditItemComponent implements OnInit {
     private categoryService: CategoryService) { }
 
   ngOnInit(): void {
-    let id = this.route.snapshot.paramMap.get("itemId");
+    let id = Number(this.route.snapshot.paramMap.get("itemId"));
         
-    let itemFound = this.itemService.itemsInService.find(item => item.title == id);
+    let itemFound = this.itemService.itemsInService.find(item => item.id == id);
     if (itemFound) {
       this.item = itemFound;
     }
     
     this.editItemForm = new FormGroup({
+      id: new FormControl(this.item.id),
       title: new FormControl(this.item.title),
       imgSrc: new FormControl(this.item.imgSrc),
       price: new FormControl(this.item.price),

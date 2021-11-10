@@ -11,7 +11,9 @@
     <!-- <input ngModel name="category" type="text" required><br> -->
     <select ngModel name="category">
         <option *ngFor="let category of categories" value="{{ category }}">{{ category }}</option>        
-      </select><br>
+    </select><br>
+    <label>Eseme ID</label><br>
+    <input ngModel name="id" type="number" required><br>
     <label>Eseme aktiivne</label><br>
     <input ngModel name="isActive" type="checkbox"><br>
     <button [disabled]="addItemForm.invalid">Lisa ese</button>
