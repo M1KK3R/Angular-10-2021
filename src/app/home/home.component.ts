@@ -11,6 +11,9 @@ import { ItemService } from '../services/item.service';
 export class HomeComponent implements OnInit {
 
   items: Item[] =[];
+  sortTitleAsc = true;
+  sortPriceAsc = true;
+  wordCount = 3;
 
 
   constructor(private cartService: CartService,
@@ -24,21 +27,27 @@ export class HomeComponent implements OnInit {
     this.cartService.cartItemsInService.push(item);
   }
 
-  onSortByTitleAsc() {
-    this.items.sort((currentItem, nextItem)=> currentItem.title.localeCompare(nextItem.title) );
+  onSortByTitle() {
+    if (this.sortTitleAsc) {
+      this.items.sort((currentItem, nextItem)=> currentItem.title.localeCompare(nextItem.title) );
+      this.sortTitleAsc = false;
+    } else {
+      this.items.sort((currentItem, nextItem)=> nextItem.title.localeCompare(currentItem.title) );
+      this.sortTitleAsc = true;
+    }
+  }
+  
+  onSortByPrice() {
+    if (this.sortPriceAsc) {
+      this.items.sort((currentItem, nextItem)=> currentItem.price - nextItem.price);
+      this.sortPriceAsc = false;
+    } else {
+      this.items.sort((currentItem, nextItem)=> nextItem.price - currentItem.price);
+      this.sortPriceAsc = true;
+    }
   }
 
-  onSortByTitleDesc() {
-    this.items.sort((currentItem, nextItem)=> nextItem.title.localeCompare(currentItem.title) );    
-  }
+  wordCountSlider() {}
 
-  onSortByPriceAsc() {
-    this.items.sort((currentItem, nextItem)=> currentItem.price - nextItem.price);
-  }
-
-  onSortByPriceDesc() {
-    this.items.sort((currentItem, nextItem)=> nextItem.price - currentItem.price);
-    
-  }
 
 }

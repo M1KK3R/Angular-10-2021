@@ -17,6 +17,8 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { ViewComponent } from './home/view/view.component';
 import { CategoryComponent } from './admin/category/category.component';
+import { ItemPricePipe } from './pipes/item-price.pipe';
+import { ShortenTitlePipe } from './pipes/shorten-title.pipe';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { CategoryComponent } from './admin/category/category.component';
     ViewItemsComponent,
     AdminHomeComponent,
     ViewComponent,
-    CategoryComponent,    
+    CategoryComponent,
+    ItemPricePipe,
+    ShortenTitlePipe,    
   ],
   imports: [
     BrowserModule,

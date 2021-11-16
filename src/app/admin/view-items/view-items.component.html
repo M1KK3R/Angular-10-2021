@@ -1,6 +1,6 @@
 <div *ngFor="let item of items" class="item">
 <div>{{ item.title }}</div>
-<div>{{ item.price }}</div>
+<div>{{ item.price | itemPrice }}</div>
 <div>{{ item.imgSrc }}</div>
 <div>{{ item.category }}</div>
 <button (click)="onDeleteItem(item)">X</button>

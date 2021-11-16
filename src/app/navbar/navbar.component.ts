@@ -7,10 +7,12 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  sumOfCart = 0;
 
   constructor(private translate: TranslateService) { }
 
   ngOnInit(): void {
+    console.log("TAHAN")
     let language = localStorage.getItem("language")
     if (language) {
       this.translate.use("language")

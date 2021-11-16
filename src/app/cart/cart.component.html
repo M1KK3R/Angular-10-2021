@@ -7,12 +7,12 @@
 
 <div *ngFor="let cartItem of cartItems" class="item">
     <div>{{ cartItem.title }}</div>
-    <div>{{ cartItem.price }}</div>
+    <div>{{ cartItem.price | itemPrice }}</div>
     <img src="{{ cartItem.imgSrc }}" alt="tooted"><br>
     <button (click)="deleteItemFromCart(cartItem)">X</button>
 </div>
 
-<div *ngIf="cartItems.length > 0">Ostukorvi summa on {{ sumOfCart }} €</div>
+<div *ngIf="cartItems.length > 0">Ostukorvi summa on {{ sumOfCart | itemPrice }}</div>
 
 
 

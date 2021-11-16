@@ -1,16 +1,17 @@
-<button (click)="onSortByTitleAsc()">Järjesta A-Z</button>
-<button (click)="onSortByTitleDesc()">Järjesta Z-A</button>
-<button (click)="onSortByPriceAsc()">Järjesta odavamast</button>
-<button (click)="onSortByPriceDesc()">Järjesta kallimast</button>
+<input type="range" min="0" max="15" value="3" [(ngModel)]="wordCount">
+<button (click)="onSortByTitle()">Järjesta tähestiku järgi</button>
+<button (click)="onSortByPrice()">Järjesta hinna järgi</button>
+
 
 <br><br><br>
 
 <div *ngFor="let item of items" class="item">
-    <div>{{ item.title }}</div>
-    <div>{{ item.price }}</div>
+    <div>{{ item.title | shortenTitle:wordCount }}</div>
+    <div>{{ item.price | itemPrice }}</div>
     <img routerLink="ese/{{ item.id }}" src="{{ item.imgSrc }}" alt="tooted"><br>   
     <button (click)="onAddToCart(item)">{{ "Lisa ostukorvi" | translate }}</button>
     <br><br>
 </div>
+
 
 
