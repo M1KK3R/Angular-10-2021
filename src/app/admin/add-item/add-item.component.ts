@@ -8,27 +8,26 @@ import { ItemService } from 'src/app/services/item.service';
   selector: 'app-add-item',
   templateUrl: './add-item.component.html',
   styleUrls: ['./add-item.component.css'],
-  
 })
-
 export class AddItemComponent implements OnInit {
-  categories: string[] =[];
+  categories: string[] = [];
 
-  constructor(private itemService: ItemService,
-    private categoryService: CategoryService) { }
+  constructor(
+    private itemService: ItemService,
+    private categoryService: CategoryService
+  ) {}
 
   ngOnInit(): void {
-    this.categories = this.categoryService.categoriesInService
+    this.itemService.getItemsFromDatabase().subscribe((itemsFromDb) => {
+      this.itemService.itemsInService = itemsFromDb;
+    });
+    this.categories = this.categoryService.categoriesInService;
   }
 
   onSubmit(form: NgForm) {
     if (form.valid) {
-    console.log(form.value);
-    console.log(form);
-
-    this.itemService.itemsInService.push(form.value);   
-    
+      this.itemService.itemsInService.push(form.value);
+      this.itemService.addItemsToDatabase().subscribe();
     }
   }
-
 }

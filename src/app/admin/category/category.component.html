@@ -1,9 +1,12 @@
 <!-- <form (ngSubmit)="onSubmit()" #form="ngForm">
 </form> -->
 <!-- addItemComponent abiks -->
+
+<!-- <button (click)="onAddCatToDatabase()">LISA ANDMEBAASI</button> -->
+
 <form (ngSubmit)="onSubmit(addCategoryForm)" #addCategoryForm="ngForm">
     <label>Uue Kategooria nimetus</label><br>
-    <input ngModel name="category" type="text" required><br>    
+    <input ngModel name="category" type="text" required><br>
     <button [disabled]="addCategoryForm.invalid">Lisa ese</button>
 </form>
 
