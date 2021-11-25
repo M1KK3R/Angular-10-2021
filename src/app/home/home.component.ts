@@ -23,12 +23,13 @@ export class HomeComponent implements OnInit {
     // this.items = this.itemService.itemsInService
     this.itemService.getItemsFromDatabase().subscribe((itemsFromDb) => {
       this.items = itemsFromDb;
-      this.itemService.itemsInService = itemsFromDb;
+      this.itemService.updateItems(itemsFromDb);
     });
   }
 
   onAddToCart(item: Item) {
     this.cartService.cartItemsInService.push(item);
+    this.cartService.cartChanged.next();
   }
 
   onSortByTitle() {

@@ -6,24 +6,21 @@ import { ItemService } from 'src/app/services/item.service';
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
-  styleUrls: ['./view.component.css']
+  styleUrls: ['./view.component.css'],
 })
 export class ViewComponent implements OnInit {
   item!: Item;
 
-  constructor(private route: ActivatedRoute, 
-    private itemService: ItemService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private itemService: ItemService
+  ) {}
 
   ngOnInit(): void {
-    let id = Number(this.route.snapshot.paramMap.get("itemId"));
-    console.log(id);
-    let itemFound = this.itemService.itemsInService.find(item => item.id == id);
+    let itemId = Number(this.route.snapshot.paramMap.get('itemId'));
+    let itemFound = this.itemService.findItem(itemId);
     if (itemFound) {
-    this.item = itemFound;
+      this.item = itemFound;
     }
-
-    
-    
   }
-
 }

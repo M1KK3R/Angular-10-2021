@@ -19,14 +19,18 @@ export class AddItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.itemService.getItemsFromDatabase().subscribe((itemsFromDb) => {
-      this.itemService.itemsInService = itemsFromDb;
+      this.itemService.updateItems(itemsFromDb);
     });
-    this.categories = this.categoryService.categoriesInService;
+    this.categoryService.getCatFromDatabase().subscribe((categoriesFromDb) => {
+      this.categories = categoriesFromDb;
+      this.categoryService.categoriesInService = categoriesFromDb;
+    });
   }
 
   onSubmit(form: NgForm) {
     if (form.valid) {
-      this.itemService.itemsInService.push(form.value);
+      this.itemService.addItem(form.value);
+      // this.itemService.itemsInService.push(form.value);
       this.itemService.addItemsToDatabase().subscribe();
     }
   }

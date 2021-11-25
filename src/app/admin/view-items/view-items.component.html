@@ -1,10 +1,12 @@
 <!-- <button (click)="onAddItemToDatabase()">LISA ANDMEBAASI</button> -->
 
-<div *ngFor="let item of items" class="item">
-    <div>{{ item.title }}</div>
-    <div>{{ item.price | itemPrice }}</div>
-    <div>{{ item.imgSrc }}</div>
-    <div>{{ item.category }}</div>
+<div *ngFor="let item of items" class="item" [ngClass]="{active: item.isActive, inactive: !item.isActive}">
+    <div (click)="onChangeActive(item)">
+        <div>{{ item.title }}</div>
+        <div>{{ item.price | itemPrice }}</div>
+        <div>{{ item.imgSrc }}</div>
+        <div>{{ item.category }}</div>
+    </div>
     <button (click)="onDeleteItem(item)">X</button>
     <button routerLink="/admin/muuda-ese/{{item.id}}">Muuda ese</button>
 </div>

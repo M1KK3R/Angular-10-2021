@@ -16,17 +16,23 @@ export class ViewItemsComponent implements OnInit {
     // this.items = this.itemService.itemsInService;
     this.itemService.getItemsFromDatabase().subscribe((itemsFromDb) => {
       this.items = itemsFromDb;
-      this.itemService.itemsInService = itemsFromDb;
+      this.itemService.updateItems(itemsFromDb);
     });
   }
 
   onDeleteItem(item: Item) {
-    let index = this.itemService.itemsInService.indexOf(item);
-    this.itemService.itemsInService.splice(index, 1);
+    this.itemService.deleteItem(item);
     this.itemService.addItemsToDatabase().subscribe();
   }
 
   onAddItemToDatabase() {
+    this.itemService.addItemsToDatabase().subscribe();
+  }
+
+  onChangeActive(item: Item) {
+    // let index = this.itemService.itemsInService.indexOf(item);
+    // let itemChange = this.itemService.itemsInService[index];
+    item.isActive = !item.isActive;
     this.itemService.addItemsToDatabase().subscribe();
   }
 }

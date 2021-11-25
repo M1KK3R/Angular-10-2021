@@ -1,7 +1,15 @@
 .item {
-    background-color: lightblue;
+  background-color: lightblue;
 }
 
 img {
-    height: 150px;
+  height: 150px;
+}
+
+.active {
+  border: 1px solid green;
+}
+
+.inactive {
+  border: 1px solid red;
 }

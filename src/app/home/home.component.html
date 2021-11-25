@@ -6,12 +6,11 @@
 <br><br><br>
 
 <div *ngFor="let item of items" class="item">
-    <div>{{ item.title | shortenTitle:wordCount }}</div>
-    <div>{{ item.price | itemPrice }}</div>
-    <img routerLink="ese/{{ item.id }}" src="{{ item.imgSrc }}" alt="tooted"><br>   
-    <button (click)="onAddToCart(item)">{{ "Lisa ostukorvi" | translate }}</button>
-    <br><br>
+    <div *ngIf="item.isActive">
+        <div>{{ item.title | shortenTitle:wordCount }}</div>
+        <div>{{ item.price | itemPrice }}</div>
+        <img routerLink="ese/{{ item.id }}" src="{{ item.imgSrc }}" alt="tooted"><br>
+        <button (click)="onAddToCart(item)">{{ "Lisa ostukorvi" | translate }}</button>
+        <br><br>
+    </div>
 </div>
-
-
-

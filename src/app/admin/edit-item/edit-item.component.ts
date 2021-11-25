@@ -24,13 +24,11 @@ export class EditItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.itemService.getItemsFromDatabase().subscribe((itemsFromDb) => {
-      this.itemService.itemsInService = itemsFromDb;
+      this.itemService.updateItems(itemsFromDb);
 
-      let id = Number(this.route.snapshot.paramMap.get('itemId'));
+      let itemId = Number(this.route.snapshot.paramMap.get('itemId'));
 
-      let itemFound = this.itemService.itemsInService.find(
-        (item) => item.id == id
-      );
+      let itemFound = this.itemService.findItem(itemId);
       if (itemFound) {
         this.item = itemFound;
       }
@@ -43,17 +41,21 @@ export class EditItemComponent implements OnInit {
         category: new FormControl(this.item.category),
         isActive: new FormControl(this.item.isActive),
       });
-
-      this.categories = this.categoryService.categoriesInService;
+      this.categoryService
+        .getCatFromDatabase()
+        .subscribe((categoriesFromDb) => {
+          this.categories = categoriesFromDb;
+          this.categoryService.categoriesInService = categoriesFromDb;
+        });
     });
   }
 
   onSubmit() {
     if (this.editItemForm.valid) {
-      let index = this.itemService.itemsInService.indexOf(this.item);
-      this.itemService.itemsInService[index] = this.editItemForm.value;
-      this.itemService.addItemsToDatabase().subscribe(() => {});
-      this.router.navigateByUrl('/admin/esemed');
+      this.itemService.editItem(this.item, this.editItemForm.value);
+      this.itemService.addItemsToDatabase().subscribe(() => {
+        this.router.navigateByUrl('/admin/esemed');
+      });
     }
   }
 }

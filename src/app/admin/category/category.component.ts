@@ -15,8 +15,10 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
     // this.categories = this.categoryService.categoriesInService;
     this.categoryService.getCatFromDatabase().subscribe((categoriesFromDb) => {
-      this.categories = categoriesFromDb;
-      this.categoryService.categoriesInService = categoriesFromDb;
+      if (categoriesFromDb) {
+        this.categories = categoriesFromDb;
+        this.categoryService.categoriesInService = categoriesFromDb;
+      }
     });
   }
   onRemoveCategory(category: string) {
