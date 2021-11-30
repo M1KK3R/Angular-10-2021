@@ -1,0 +1,9 @@
+<div>{{ error }}</div>
+
+<form (ngSubmit)="onSignUp(form)" #form="ngForm">
+    <label for="">E-mail</label> <br>
+    <input ngModel name="email" placeholder="email" type="text" required> <br>
+    <label for="">Parool</label> <br>
+    <input ngModel name="password" placeholder="parool" type="text" required> <br>
+    <button [disabled]="form.invalid">Registreeru</button>
+</form>

@@ -3,10 +3,11 @@
 <div class="navbar">
     <!-- pildid tulevad img täägi sisse ja leian nad source src="" abil õigest asukohast, panen neile ka CSS klassi, et anda neile kujundust -->
     <img class="logo menu-button" routerLink="/" src="assets/OnlineStore.png" alt="logo">
-                                <!-- Angulari lisaatribuut - routerLink -->
-        <button routerLink="admin">{{ "Mine admin lehele" | translate }}</button>
-        <button (click)="useLanguage('en')">en</button>
-        <button (click)="useLanguage('ee')">ee</button>
+    <!-- Angulari lisaatribuut - routerLink -->
+    <button *ngIf="isLoggedIn" routerLink="admin">{{ "Mine admin lehele" | translate }}</button>
+    <button *ngIf="isLoggedIn" (click)="onLogout()">Logi välja</button>
+    <button (click)="useLanguage('en')">en</button>
+    <button (click)="useLanguage('ee')">ee</button>
     <img class="cart-button menu-button" routerLink="ostukorv" src="assets/shopping-cart.png" alt="ShopingCart">
     <div> {{ sumOfCart | itemPrice }}</div>
 </div>

@@ -19,6 +19,8 @@ import { ViewComponent } from './home/view/view.component';
 import { CategoryComponent } from './admin/category/category.component';
 import { ItemPricePipe } from './pipes/item-price.pipe';
 import { ShortenTitlePipe } from './pipes/shorten-title.pipe';
+import { SignupComponent } from './auth/signup/signup.component';
+import { LoginComponent } from './auth/login/login.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { ShortenTitlePipe } from './pipes/shorten-title.pipe';
     ViewComponent,
     CategoryComponent,
     ItemPricePipe,
-    ShortenTitlePipe,    
+    ShortenTitlePipe,
+    SignupComponent,
+    LoginComponent,    
   ],
   imports: [
     BrowserModule,

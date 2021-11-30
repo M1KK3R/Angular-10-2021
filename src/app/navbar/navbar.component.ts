@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from '../auth/auth.service';
 import { Item } from '../models/item.model';
 import { CartService } from '../services/cart.service';
 
@@ -10,13 +11,20 @@ import { CartService } from '../services/cart.service';
 })
 export class NavbarComponent implements OnInit {
   sumOfCart = 0;
+  isLoggedIn = false;
 
   constructor(
     private translate: TranslateService,
-    private cartService: CartService
+    private cartService: CartService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    this.isLoggedIn = sessionStorage.getItem('userData') != null;
+    this.authService.loggedInChanged.subscribe(
+      (loggedIn) => (this.isLoggedIn = loggedIn)
+    );
+
     this.cartService.cartChanged.subscribe(() => {
       this.sumOfCart = 0;
       this.cartService.cartItemsInService.forEach(
@@ -33,5 +41,9 @@ export class NavbarComponent implements OnInit {
   useLanguage(language: string): void {
     this.translate.use(language);
     localStorage.setItem('language', language);
+  }
+
+  onLogout() {
+    this.authService.logout();
   }
 }
