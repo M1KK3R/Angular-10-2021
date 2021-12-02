@@ -6,15 +6,14 @@
 </div>
 
 <div *ngFor="let cartItem of cartItems" class="item">
-    <div>{{ cartItem.title }}</div>
-    <div>{{ cartItem.price | itemPrice }}</div>
-    <img src="{{ cartItem.imgSrc }}" alt="tooted"><br>
-    <button (click)="deleteItemFromCart(cartItem)">X</button>
+    <div>{{ cartItem.cartItem.title }}</div>
+    <div>{{ cartItem.cartItem.price | itemPrice }}</div>
+    <button (click)="onAddOneFromCart(cartItem)">+</button>
+    <button (click)="onDeleteOneFromCart(cartItem)">-</button>
+    <div>{{ cartItem.quantity | itemPrice }}</div>
+    <div>{{ cartItem.cartItem.price * cartItem.quantity | itemPrice }}</div>
+    <img src="{{ cartItem.cartItem.imgSrc }}" alt="tooted"><br>
+    <button (click)="onDeleteItemFromCart(cartItem)">X</button>
 </div>
 
 <div *ngIf="cartItems.length > 0">Ostukorvi summa on {{ sumOfCart | itemPrice }}</div>
-
-
-
-
-

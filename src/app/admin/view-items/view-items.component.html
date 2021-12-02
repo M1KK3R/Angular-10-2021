@@ -1,4 +1,10 @@
 <!-- <button (click)="onAddItemToDatabase()">LISA ANDMEBAASI</button> -->
+<br><br>
+
+<label for="search">Otsi toodet:</label>
+<input (keyup)="onSearch()" [(ngModel)]="searchedItem" type="search">
+
+<br><br>
 
 <div *ngFor="let item of items" class="item" [ngClass]="{active: item.isActive, inactive: !item.isActive}">
     <div (click)="onChangeActive(item)">

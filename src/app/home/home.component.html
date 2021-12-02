@@ -1,3 +1,17 @@
+<ngb-carousel *ngIf="images">
+    <ng-template *ngFor="let image of images" ngbSlide>
+        <div class="picsum-img-wrapper">
+            <img src="{{image.url}}" alt="{{image.alt}}">
+        </div>
+        <div class="carousel-caption">
+            <h3>{{image.header}}</h3>
+            <p>{{image.text}}</p>
+        </div>
+    </ng-template>
+</ngb-carousel>
+
+<br><br>
+
 <input type="range" min="0" max="15" value="3" [(ngModel)]="wordCount">
 <button (click)="onSortByTitle()">Järjesta tähestiku järgi</button>
 <button (click)="onSortByPrice()">Järjesta hinna järgi</button>

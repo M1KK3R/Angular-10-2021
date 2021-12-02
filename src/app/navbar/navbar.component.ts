@@ -28,7 +28,9 @@ export class NavbarComponent implements OnInit {
     this.cartService.cartChanged.subscribe(() => {
       this.sumOfCart = 0;
       this.cartService.cartItemsInService.forEach(
-        (item) => (this.sumOfCart = this.sumOfCart + item.price)
+        (item) =>
+          (this.sumOfCart =
+            this.sumOfCart + item.cartItem.price * item.quantity)
       );
       console.log('ostukorvi sisu');
     });

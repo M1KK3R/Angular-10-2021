@@ -9,6 +9,36 @@ import { ItemService } from '../services/item.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  // images = [700, 533, 807, 124].map(
+  //   (n) => `https://picsum.photos/id/${n}/900/500`
+  // );
+  images = [
+    {
+      url: 'https://picsum.photos/id/700/900/502',
+      header: 'header1',
+      text: 'text1',
+      alt: 'alt1',
+    },
+    {
+      url: 'https://picsum.photos/id/700/900/503',
+      header: 'header2',
+      text: 'text2',
+      alt: 'alt2',
+    },
+    {
+      url: 'https://picsum.photos/id/700/900/504',
+      header: 'header3',
+      text: 'text3',
+      alt: 'alt2',
+    },
+    {
+      url: 'https://picsum.photos/id/700/900/505',
+      header: 'header4',
+      text: 'text4',
+      alt: 'alt2',
+    },
+  ];
+
   items: Item[] = [];
   sortTitleAsc = true;
   sortPriceAsc = true;
@@ -28,7 +58,15 @@ export class HomeComponent implements OnInit {
   }
 
   onAddToCart(item: Item) {
-    this.cartService.cartItemsInService.push(item);
+    let cartIndex = this.cartService.cartItemsInService.findIndex(
+      (cartItem) => cartItem.cartItem.id == item.id
+    );
+    if (cartIndex > -1) {
+      this.cartService.cartItemsInService[cartIndex].quantity++;
+    } else {
+      this.cartService.cartItemsInService.push({ cartItem: item, quantity: 1 });
+    }
+
     this.cartService.cartChanged.next();
   }
 
