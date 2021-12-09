@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from 'src/app/models/item.model';
 import { CategoryService } from 'src/app/services/category.service';
@@ -34,9 +34,12 @@ export class EditItemComponent implements OnInit {
       }
 
       this.editItemForm = new FormGroup({
-        id: new FormControl(this.item.id),
+        id: new FormControl(this.item.id, Validators.required),
         title: new FormControl(this.item.title),
-        imgSrc: new FormControl(this.item.imgSrc),
+        imgSrc: new FormControl(this.item.imgSrc, [
+          Validators.required,
+          Validators.pattern(/^\S*$/),
+        ]),
         price: new FormControl(this.item.price),
         category: new FormControl(this.item.category),
         isActive: new FormControl(this.item.isActive),

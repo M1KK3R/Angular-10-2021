@@ -1,8 +1,6 @@
-
-
 <form (ngSubmit)="onSubmit(addItemForm)" #addItemForm="ngForm">
     <label>Eseme nimetus</label><br>
-    <input ngModel name="title" type="text" required><br>
+    <textarea ngModel name="title" type="text" appDynamicHeightDirective required></textarea><br>
     <label>Eseme hind</label><br>
     <input ngModel name="price" type="number" required><br>
     <label>Eseme pilt</label><br>
@@ -10,7 +8,7 @@
     <label>Eseme kategooria</label><br>
     <!-- <input ngModel name="category" type="text" required><br> -->
     <select ngModel name="category">
-        <option *ngFor="let category of categories" value="{{ category }}">{{ category }}</option>        
+        <option *ngFor="let category of categories" value="{{ category }}">{{ category }}</option>
     </select><br>
     <label>Eseme ID</label><br>
     <input ngModel name="id" type="number" required><br>
@@ -18,5 +16,3 @@
     <input ngModel name="isActive" type="checkbox"><br>
     <button [disabled]="addItemForm.invalid">Lisa ese</button>
 </form>
-
-

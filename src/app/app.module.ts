@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,8 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './admin/carousel/carousel.component';
+import { DynamicHeightDirectiveDirective } from './admin/add-item/dynamic-height-directive.directive';
+import { ItemCardComponent } from './home/item-card/item-card.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,8 @@ import { CarouselComponent } from './admin/carousel/carousel.component';
     SignupComponent,
     LoginComponent,
     CarouselComponent,
+    DynamicHeightDirectiveDirective,
+    ItemCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +62,7 @@ import { CarouselComponent } from './admin/carousel/carousel.component';
     }),
     NgbModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

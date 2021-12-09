@@ -1,4 +1,4 @@
-<ngb-carousel *ngIf="images">
+<ngb-carousel class="carousel-wrapper" *ngIf="images">
     <ng-template *ngFor="let image of images" ngbSlide>
         <div class="picsum-img-wrapper">
             <img src="{{image.url}}" alt="{{image.alt}}">
@@ -19,12 +19,7 @@
 
 <br><br><br>
 
-<div *ngFor="let item of items" class="item">
-    <div *ngIf="item.isActive">
-        <div>{{ item.title | shortenTitle:wordCount }}</div>
-        <div>{{ item.price | itemPrice }}</div>
-        <img routerLink="ese/{{ item.id }}" src="{{ item.imgSrc }}" alt="tooted"><br>
-        <button (click)="onAddToCart(item)">{{ "Lisa ostukorvi" | translate }}</button>
-        <br><br>
-    </div>
+<div *ngFor="let item of items" class="item" [ngClass]="{newProduct: item.title.toLowerCase().startsWith('new')}">
+    <app-item-card [itemInCard]=item [wordCount]=wordCount></app-item-card>
+
 </div>
